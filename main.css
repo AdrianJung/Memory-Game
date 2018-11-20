@@ -6,6 +6,9 @@ height: 100vh;
 margin: 0;
 }
 
+* {
+	border: 1px solid black;
+}
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -16,7 +19,7 @@ margin: 0;
 	background-color: white;
 }
 
-.card {
+.cards {
 	border: 1px solid black;
 	margin: 4px;
 	background-color: goldenrod;
@@ -24,4 +27,27 @@ margin: 0;
 }
 .card.active{
 	transform:scale(1.02);
+}
+.card {
+  background-color: floralwhite;
+  height: 90px;
+  width: 90px;
+  margin: 10px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 3px lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-1 {
+	background-color: blue;
+
+}
+.card-2 {
+
+}
+.card-3 {
+
 }
