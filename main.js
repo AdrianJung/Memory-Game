@@ -1,22 +1,22 @@
 'use strict=1';
 
 const cards = [
-  { id: 1, cardclass: 'card card-1', image: './images/apple.png' },
-  { id: 1, cardclass: 'card card-1', image: './images/apple.png' },
-  { id: 2, cardclass: 'card card-2', image: './images/carrot.png' },
-  { id: 2, cardclass: 'card card-2', image: './images/carrot.png' },
-  { id: 3, cardclass: 'card card-3', image: './images/orange.png' },
-  { id: 3, cardclass: 'card card-3', image: './images/orange.png' },
-  { id: 4, cardclass: 'card card-4', image: './images/grapes.png' },
-  { id: 4, cardclass: 'card card-4', image: './images/grapes.png' },
-  { id: 5, cardclass: 'card card-5', image: './images/strawberry.png' },
-  { id: 5, cardclass: 'card card-5', image: './images/strawberry.png' },
-  { id: 6, cardclass: 'card card-6', image: './images/.png' },
-  { id: 6, cardclass: 'card card-6', image: './images/grapes.png' },
-  { id: 7, cardclass: 'card card-7', image: './images/grapes.png' },
-  { id: 7, cardclass: 'card card-7', image: './images/grapes.png' },
-  { id: 8, cardclass: 'card card-8', image: './images/kiwi.png' },
-  { id: 8, cardclass: 'card card-8', image: './images/kiwi.png' }
+  { id: 1, cardclass: 'card card-1'},
+  { id: 1, cardclass: 'card card-1'},
+  { id: 2, cardclass: 'card card-2'},
+  { id: 2, cardclass: 'card card-2'},
+  { id: 3, cardclass: 'card card-3'},
+  { id: 3, cardclass: 'card card-3'},
+  { id: 4, cardclass: 'card card-4'},
+  { id: 4, cardclass: 'card card-4'},
+  { id: 5, cardclass: 'card card-5'},
+  { id: 5, cardclass: 'card card-5'},
+  { id: 6, cardclass: 'card card-6'},
+  { id: 6, cardclass: 'card card-6'},
+  { id: 7, cardclass: 'card card-7'},
+  { id: 7, cardclass: 'card card-7'},
+  { id: 8, cardclass: 'card card-8'},
+  { id: 8, cardclass: 'card card-8'}
 ]
 
 let firstcard = 0;
@@ -25,7 +25,8 @@ let secondcard = 0;
 let counter = 0;
 const container = document.querySelector('.container')
 const shufflebutton = document.querySelector('.reset')
-const makeCard = (id, cardclass, image) => {
+const finishGame = document.querySelector('.finish')
+const makeCard = (id, cardclass) => {
 	return `<div data-id="${id}" class="${cardclass}">
 	</div>`;
 }
@@ -43,7 +44,7 @@ function shuffle(array) {
 
 function printcards(cards) {
 	for (let i = 0; i < cards.length; i++) {
-		const card = makeCard(cards[i].id, cards[i].cardclass, cards[i].image);
+		const card = makeCard(cards[i].id, cards[i].cardclass,);
 		container.innerHTML += card;
 	};
 }
@@ -53,6 +54,7 @@ removecards(cards);
 printcards(cards);
 
 shufflebutton.addEventListener('click', () => {
+	finishGame.classList.remove('done')
 	removecards(cards);
 	shuffle(cards);
 	printcards(cards);
@@ -60,41 +62,54 @@ shufflebutton.addEventListener('click', () => {
 
 const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 	if (firstcard === secondcard) {
+		firstcardEle.classList.add('match')
+		secondcardEle.classList.add('match')
 		finishCounter++
+
 		if (finishCounter == 8) {
+			finishGame.classList.add('done');
 
 		}
-
 	} else {
 		firstcardEle.classList.remove('active')
 		secondcardEle.classList.remove('active')
+		firstcardEle.classList.remove('activeimage')
+		secondcardEle.classList.remove('activeimage')
+
 	}
 }
+
 let finishCounter = 0;
 const clickFix = (e) => {
-	if (e.target.matches('.card')) {
+	if (e.target.matches('.card') && counter < 2) {
+		if (e.target.classList.contains('match')) {
 
-		if (previoustarget !== e.target || counter == 0) {
-			e.target.classList.add('active')
+		}
+		else {
+			if (previoustarget !== e.target || counter == 0) {
+				e.target.classList.add('active')
+				setTimeout(() => {
+					e.target.classList.add('activeimage')
+				}, 300);
 				++counter
-
-			if (firstcard === 0) {
-				firstcard = e.target.dataset.id
-				firstcardEle = e.target
-			} else {
-				secondcard = e.target.dataset.id
-				secondcardEle = e.target
-				if (counter == 2) {
-					setTimeout(() => {
-						checkMatch(firstcard, secondcard, firstcardEle, secondcardEle)
-						counter = 0;
-						firstcard = 0;
-						secondcard = 0;
-					}, 600)
+				if (firstcard === 0) {
+					firstcard = e.target.dataset.id
+					firstcardEle = e.target
+				} else {
+					secondcard = e.target.dataset.id
+					secondcardEle = e.target
+					if (counter == 2) {
+						setTimeout(() => {
+							checkMatch(firstcard, secondcard, firstcardEle, secondcardEle)
+							counter = 0;
+							firstcard = 0;
+							secondcard = 0;
+						}, 1100)
+					}
 				}
 			}
+			previoustarget = e.target
 		}
-		previoustarget = e.target
 	}
 }
 
