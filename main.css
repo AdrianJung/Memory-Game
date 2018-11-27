@@ -6,56 +6,68 @@ height: 100vh;
 margin: 0;
 }
 
-* {
-	border: 1px solid black;
-}
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
-	height: 700px;
-	width: 700px;
+	height: 600px;
+	width: 600px;
 	margin: 0;
 	background-color: white;
 }
+.finish {
+	position:absolute;
+	bottom: 20px;
+	left: 37%;
+	font-size: 50px;
+	color: black;
 
-.cards {
+}
+.card {
 	border: 1px solid black;
 	margin: 4px;
 	background-color: goldenrod;
 
 }
-.selected {
-	transform: scale(1.05);
-}
-.cards.active{
-	display: none;
+
+.active {
+	transform: rotateY(180deg);
+	transition: 0.6s;
+	transform-style: preserve-3d;
 }
 
-.card-1 {
-	background-color: green;
+.card.notactive {
+	transform: rotateY(180deg);
+	background-color: goldenrod;
+}
+.card-1.active {
+	background-color: red;
 
 }
-.card-2 {
+.card-2.active {
 	background-color: black;
-
-
 }
-.card-3 {
+.card-3.active {
 background-color: hotpink;
 }
-.card-4 {
+.card-4.active {
 background-color: purple;
 }
-.card-5 {
+.card-5.active {
 background-color: white;
 }
-.card-6 {
+.card-6.active {
 background-color: grey;
 }
-.card-7 {
+.card-7.active {
 background-color: blue;
 }
-.card-8 {
+.card-8.active {
 background-color: lightblue;
+}
+@keyframes card1 {
+	100% {
+		background-color: aquamarine;
+	}
+
 }
