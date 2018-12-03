@@ -19,12 +19,14 @@ const cards = [
   { id: 8, cardclass: 'card card-8'}
 ]
 
+let clickCounter = 0;
 let firstcard = 0;
 let previoustarget = 0;
 let secondcard = 0;
 let counter = 0;
 const cloudguy = document.querySelector('.cloudguy')
 const cloudbox = document.querySelector('.cloudbox')
+const cloudtext = document.querySelector('.cloudtext')
 const startimage = document.querySelector('.start')
 const startbutton = document.querySelector('.startbutton')
 const mushroomicon = document.querySelector('.mushroomicon')
@@ -45,6 +47,7 @@ const makeCard = (id, cardclass) => {
 
 const removecards = () => {
 	container.innerHTML = "";
+		clickCounter = 0;
 }
 
 function shuffle(array) {
@@ -81,6 +84,8 @@ shufflebutton.addEventListener('click', () => {
 	removecards(cards);
 	shuffle(cards);
 	printcards(cards);
+	let clickCounter = 0;
+	cloudtext.textContent = "CLICKS: " + clickCounter;
 	audio.play();
 });
 
@@ -106,10 +111,11 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 
 	}
 }
-let clickCounter = 0;
 let finishCounter = 0;
 const clickFix = (e) => {
 	clickCounter++;
+	cloudtext.textContent = "CLICKS: " + clickCounter;
+
 	if (e.target.matches('.card') && counter < 2) {
 		if (e.target.classList.contains('match')) {
 
@@ -121,7 +127,6 @@ const clickFix = (e) => {
 					e.target.classList.add('activeimage')
 				}, 300);
 				++counter
-				console.log(counter);
 				if (firstcard === 0) {
 					firstcard = e.target.dataset.id
 					firstcardEle = e.target
