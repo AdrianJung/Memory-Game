@@ -84,7 +84,36 @@ video {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	cursor: pointer;
+}
 
+.cloudguy {
+	display: none;
+	position: absolute;
+	left: 5%;
+	top: 7%;
+	background-image: url(images/cloudguy.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 200px;
+	height: 200px;
+}
+.cloudbox {
+	display: none;
+	position: absolute;
+	left: 11.2%;
+	top: 32%;
+	background-color: white;
+	border: 1px solid black;
+	width: 150px;
+	height: 100px;
+}
+.cloudguy.visible {
+	display: block;
+}
+.cloudbox.visible {
+	display: block;
 }
 #brick {
 		background-size: cover;
@@ -143,11 +172,5 @@ video {
 }
 .card-8.activeimage {
 	background-image: url(images/Star-icon.png);
-
-}
-@keyframes card1 {
-	100% {
-		background-color: aquamarine;
-	}
 
 }

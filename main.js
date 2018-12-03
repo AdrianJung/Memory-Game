@@ -23,16 +23,20 @@ let firstcard = 0;
 let previoustarget = 0;
 let secondcard = 0;
 let counter = 0;
+const cloudguy = document.querySelector('.cloudguy')
+const cloudbox = document.querySelector('.cloudbox')
 const startimage = document.querySelector('.start')
-const startbutton = document.querySelector('.startbutton');
+const startbutton = document.querySelector('.startbutton')
 const mushroomicon = document.querySelector('.mushroomicon')
 const container = document.querySelector('.container')
 const shufflebutton = document.querySelector('#brick')
 const finishGame = document.querySelector('.finish')
-const video = document.querySelector('video');
+const video = document.querySelector('video')
 const mainAudio = document.querySelector('#main-audio')
 const secondAudio = document.querySelector('#second-audio')
 let audio = new Audio('themesong.mp3');
+let audio2 = new Audio('levelcomplete.mp3')
+
 
 const makeCard = (id, cardclass) => {
 	return `<div data-id="${id}" class="${cardclass}">
@@ -59,9 +63,10 @@ function printcards(cards) {
 startbutton.addEventListener('click', () => {
 	shuffle(cards);
 	printcards(cards);
-	shufflebutton.classList.add('visible');
 	startbutton.classList.add('hidden');
 	startimage.classList.add('hidden');
+	cloudbox.classList.add('visible');
+	cloudguy.classList.add('visible');
 	audio.loop = true;
 	audio.play();
 })
@@ -76,6 +81,7 @@ shufflebutton.addEventListener('click', () => {
 	removecards(cards);
 	shuffle(cards);
 	printcards(cards);
+	audio.play();
 });
 
 const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
@@ -86,15 +92,18 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 		console.log(finishCounter)
 
 		if (finishCounter == 1) {
-			mainAudio.parentNode.removeChild(mainAudio);
-			secondAudio.muted = false;
-			removecards(cards);
 			let finishCounter = 0;
-			setTimeout(() => {
-				shuffle(cards);
-				printcards(cards);
-
-			}, 9000);
+			audio.pause();
+			audio.currentTime = 0.0;
+			audio2.play();
+			shufflebutton.classList.add('visible');
+			// setTimeout(() => {
+			// 	removecards(cards);
+			// 	shuffle(cards);
+			// 	printcards(cards);
+			// 	// audio2.pause();
+			// 	// audio.play();
+			// }, 8000);
 
 		}
 	} else {
