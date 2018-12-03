@@ -1,7 +1,3 @@
-@font-face {
-  font-family:"Super Plumber Brothers";
-  src: url("Super Plumber Brothers.ttf") format("truetype");
-}
 body {
 display: flex;
 align-items: center;
