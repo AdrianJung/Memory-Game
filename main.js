@@ -97,14 +97,6 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 			audio.currentTime = 0.0;
 			audio2.play();
 			shufflebutton.classList.add('visible');
-			// setTimeout(() => {
-			// 	removecards(cards);
-			// 	shuffle(cards);
-			// 	printcards(cards);
-			// 	// audio2.pause();
-			// 	// audio.play();
-			// }, 8000);
-
 		}
 	} else {
 		firstcardEle.classList.remove('active')
@@ -114,9 +106,10 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 
 	}
 }
-
+let clickCounter = 0;
 let finishCounter = 0;
 const clickFix = (e) => {
+	clickCounter++;
 	if (e.target.matches('.card') && counter < 2) {
 		if (e.target.classList.contains('match')) {
 
@@ -128,6 +121,7 @@ const clickFix = (e) => {
 					e.target.classList.add('activeimage')
 				}, 300);
 				++counter
+				console.log(counter);
 				if (firstcard === 0) {
 					firstcard = e.target.dataset.id
 					firstcardEle = e.target

@@ -18,8 +18,8 @@ video {
 	min-width: 100vw;
 }
 .start {
-	background-image: url(images/marioscreen.png);
-	height: 520px;
+	background-image: url(images/marioscreen.jpg);
+	height: 410px;
 	width: 727px;
 	top: 90px;
 	background-size: cover;
@@ -36,8 +36,9 @@ video {
 }
 
 .startbutton {
-	height: 100px;
-	width: 250px;
+	background-image: url(images/startgame.png);
+	height: 120px;
+	width: 300px;
 	position: absolute;
 	bottom: 130px;
 	cursor: pointer;
@@ -52,7 +53,7 @@ video {
 	background-position: center;
 	background-repeat: no-repeat;
 	bottom: 135px;
-	left: 33%;
+	left: 37%;
 	position: absolute;
 	display: none;
 }
@@ -138,7 +139,7 @@ video {
 }
 .active {
 	transform: rotateY(180deg);
-	transition: 1s;
+	transition: 0.6s;
 	transform-style: preserve-3d;
 }
 
