@@ -32,6 +32,7 @@ const finishGame = document.querySelector('.finish')
 const video = document.querySelector('video');
 const mainAudio = document.querySelector('#main-audio')
 const secondAudio = document.querySelector('#second-audio')
+let audio = new Audio('themesong.mp3');
 
 const makeCard = (id, cardclass) => {
 	return `<div data-id="${id}" class="${cardclass}">
@@ -61,6 +62,8 @@ startbutton.addEventListener('click', () => {
 	shufflebutton.classList.add('visible');
 	startbutton.classList.add('hidden');
 	startimage.classList.add('hidden');
+	audio.loop = true;
+	audio.play();
 })
 startbutton.addEventListener('mouseover', () => {
 	mushroomicon.classList.add('active');
@@ -85,10 +88,13 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 		if (finishCounter == 1) {
 			mainAudio.parentNode.removeChild(mainAudio);
 			secondAudio.muted = false;
-
 			removecards(cards);
 			let finishCounter = 0;
-			console.log(finishCounter)
+			setTimeout(() => {
+				shuffle(cards);
+				printcards(cards);
+
+			}, 9000);
 
 		}
 	} else {

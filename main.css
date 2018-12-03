@@ -6,7 +6,12 @@ margin: 0;
 padding: 0;
 height: 100vh;
 }
-
+h3 {
+	margin: 0;
+	font-size: 24px;
+	position: inherit;
+	left: 17px;
+}
 video {
 	position: fixed;
 	min-height: 100vh;
@@ -82,6 +87,9 @@ video {
 
 }
 #brick {
+		background-size: cover;
+		background-image: url(images/brick2.png);
+		background-repeat: no-repeat;
 		position: relative;
 		display: none;
 		bottom: -45%;
@@ -92,9 +100,6 @@ video {
 		transition: all 0.1s ease-in-out;
 		font-weight:bold;
 		cursor: pointer;
-		background-size: cover;
-    background-image: url(images/brick2.png);
-    background-repeat: no-repeat;
 }
 #brick.visible {
 	display:inherit;
@@ -108,18 +113,6 @@ video {
 	transform-style: preserve-3d;
 }
 
-.card.notactive {
-	transform: rotateY(180deg);
-	background-color: goldenrod;
-}
-.card.activeimage {
-	background-color:inherit;
-	border: 0;
-	background-image: url(images/goomba-icon.png);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
 .card-1.activeimage {
 	background-image: url(images/Goomba-icon.png);
 
