@@ -96,7 +96,7 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 		finishCounter++
 		console.log(finishCounter)
 
-		if (finishCounter == 1) {
+		if (finishCounter == 8) {
 			let finishCounter = 0;
 			audio.pause();
 			audio.currentTime = 0.0;
