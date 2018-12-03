@@ -2,23 +2,29 @@ body {
 display: flex;
 align-items: center;
 justify-content: center;
-height: 100vh;
 margin: 0;
+padding: 0;
+height: 100vh;
+}
+
+video {
+	position: fixed;
+	min-height: 100vh;
+	min-width: 100vw;
 }
 
 .container {
+	position: absolute;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
 	height: 600px;
 	width: 600px;
 	margin: 0;
-	background-color: white;
+	padding: 0;
 }
 .finish {
 	position:absolute;
-	bottom: 20px;
-	left: 37%;
 	font-size: 50px;
 	color: black;
 	display:none;
@@ -27,12 +33,30 @@ margin: 0;
 	display:block;
 }
 .card {
-	border: 1px solid black;
 	margin: 4px;
-	background-color: goldenrod;
+	background-image: url(images/question.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 
 }
-
+#brick {
+		position: relative;
+		bottom: -45%;
+    width: 130px;
+    height: 60px;
+		font-size: 30px;
+		color:white;
+		transition: all 0.1s ease-in-out;
+		font-weight:bold;
+		cursor: pointer;
+		background-size: cover;
+    background-image: url(images/brick2.png);
+    background-repeat: no-repeat;
+}
+#brick:hover {
+	transform: scale(1.05);
+}
 .active {
 	transform: rotateY(180deg);
 	transition: 1s;
@@ -43,33 +67,45 @@ margin: 0;
 	transform: rotateY(180deg);
 	background-color: goldenrod;
 }
-.card-1.activeimage {
-	background-color: white;
+.card.activeimage {
+	background-color:inherit;
+	border: 0;
 	background-image: url(images/goomba-icon.png);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.card-2.active {
-	background-color: black;
+.card-1.activeimage {
+	background-image: url(images/Goomba-icon.png);
+
 }
-.card-3.active {
-background-color: hotpink;
+.card-2.activeimage {
+	background-image: url(images/Boo-icon.png);
+
 }
-.card-4.active {
-background-color: purple;
+.card-3.activeimage {
+	background-image: url(images/Bullet-Bill-icon.png);
+
 }
-.card-5.active {
-background-color: white;
+.card-4.activeimage {
+	background-image: url(images/Chain-Chomp-icon.png);
+
 }
-.card-6.active {
-background-color: grey;
+.card-5.activeimage {
+	background-image: url(images/Mushroom-1UP-icon.png);
+
 }
-.card-7.active {
-background-color: blue;
+.card-6.activeimage {
+	background-image: url(images/Paper-Bowser-icon.png);
+
 }
-.card-8.active {
-background-color: lightblue;
+.card-7.activeimage {
+	background-image: url(images/Paper-Mario-icon.png);
+
+}
+.card-8.activeimage {
+	background-image: url(images/Star-icon.png);
+
 }
 @keyframes card1 {
 	100% {

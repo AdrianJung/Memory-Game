@@ -24,8 +24,12 @@ let previoustarget = 0;
 let secondcard = 0;
 let counter = 0;
 const container = document.querySelector('.container')
-const shufflebutton = document.querySelector('.reset')
+const shufflebutton = document.querySelector('#brick')
 const finishGame = document.querySelector('.finish')
+const video = document.querySelector('video');
+const mainAudio = document.querySelector('#main-audio')
+const secondAudio = document.querySelector('#second-audio')
+
 const makeCard = (id, cardclass) => {
 	return `<div data-id="${id}" class="${cardclass}">
 	</div>`;
@@ -48,26 +52,29 @@ function printcards(cards) {
 		container.innerHTML += card;
 	};
 }
-
-shuffle(cards);
-removecards(cards);
-printcards(cards);
+// shuffle(cards);
+// printcards(cards);
 
 shufflebutton.addEventListener('click', () => {
-	finishGame.classList.remove('done')
 	removecards(cards);
 	shuffle(cards);
 	printcards(cards);
-})
+});
 
 const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 	if (firstcard === secondcard) {
 		firstcardEle.classList.add('match')
 		secondcardEle.classList.add('match')
 		finishCounter++
+		console.log(finishCounter)
 
-		if (finishCounter == 8) {
-			finishGame.classList.add('done');
+		if (finishCounter == 1) {
+			mainAudio.parentNode.removeChild(mainAudio);
+			secondAudio.muted = false;
+
+			removecards(cards);
+			let finishCounter = 0;
+			console.log(finishCounter)
 
 		}
 	} else {
