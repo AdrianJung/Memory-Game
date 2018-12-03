@@ -23,6 +23,13 @@ video {
 	position: absolute;
 }
 
+.start.hidden {
+	display:none;
+}
+.startbutton.hidden {
+	display:none;
+}
+
 .startbutton {
 	height: 100px;
 	width: 250px;
@@ -76,6 +83,7 @@ video {
 }
 #brick {
 		position: relative;
+		display: none;
 		bottom: -45%;
     width: 130px;
     height: 60px;
@@ -87,6 +95,9 @@ video {
 		background-size: cover;
     background-image: url(images/brick2.png);
     background-repeat: no-repeat;
+}
+#brick.visible {
+	display:inherit;
 }
 #brick:hover {
 	transform: scale(1.05);

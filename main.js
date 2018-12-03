@@ -23,6 +23,7 @@ let firstcard = 0;
 let previoustarget = 0;
 let secondcard = 0;
 let counter = 0;
+const startimage = document.querySelector('.start')
 const startbutton = document.querySelector('.startbutton');
 const mushroomicon = document.querySelector('.mushroomicon')
 const container = document.querySelector('.container')
@@ -54,14 +55,19 @@ function printcards(cards) {
 		container.innerHTML += card;
 	};
 }
+startbutton.addEventListener('click', () => {
+	shuffle(cards);
+	printcards(cards);
+	shufflebutton.classList.add('visible');
+	startbutton.classList.add('hidden');
+	startimage.classList.add('hidden');
+})
 startbutton.addEventListener('mouseover', () => {
 	mushroomicon.classList.add('active');
 })
 startbutton.addEventListener('mouseout', () => {
 	mushroomicon.classList.remove('active');
 })
-// shuffle(cards);
-// printcards(cards);
 
 shufflebutton.addEventListener('click', () => {
 	removecards(cards);
