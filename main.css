@@ -43,8 +43,9 @@ video {
 	left: 33%;
 	position: absolute;
 	display: none;
-
-
+}
+.mushroomicon.active {
+	display: block;
 }
 .container {
 	position: absolute;

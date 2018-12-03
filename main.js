@@ -23,7 +23,8 @@ let firstcard = 0;
 let previoustarget = 0;
 let secondcard = 0;
 let counter = 0;
-const startbutton = document.querySelector('startbutton');
+const startbutton = document.querySelector('.startbutton');
+const mushroomicon = document.querySelector('.mushroomicon')
 const container = document.querySelector('.container')
 const shufflebutton = document.querySelector('#brick')
 const finishGame = document.querySelector('.finish')
@@ -54,9 +55,11 @@ function printcards(cards) {
 	};
 }
 startbutton.addEventListener('mouseover', () => {
-
+	mushroomicon.classList.add('active');
 })
-
+startbutton.addEventListener('mouseout', () => {
+	mushroomicon.classList.remove('active');
+})
 // shuffle(cards);
 // printcards(cards);
 
