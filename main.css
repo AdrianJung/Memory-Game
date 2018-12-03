@@ -12,7 +12,40 @@ video {
 	min-height: 100vh;
 	min-width: 100vw;
 }
+.start {
+	background-image: url(images/marioscreen.png);
+	height: 520px;
+	width: 727px;
+	top: 90px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+}
 
+.startbutton {
+	height: 100px;
+	width: 250px;
+	position: absolute;
+	bottom: 130px;
+	cursor: pointer;
+	background-color: transparent;
+	z-index: 1;
+}
+.mushroomicon {
+	background-image: url(images/mushroomicon.png);
+	height: 100px;
+	width: 100px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	bottom: 135px;
+	left: 33%;
+	position: absolute;
+	display: none;
+
+
+}
 .container {
 	position: absolute;
 	display: grid;

@@ -23,6 +23,7 @@ let firstcard = 0;
 let previoustarget = 0;
 let secondcard = 0;
 let counter = 0;
+const startbutton = document.querySelector('startbutton');
 const container = document.querySelector('.container')
 const shufflebutton = document.querySelector('#brick')
 const finishGame = document.querySelector('.finish')
@@ -52,6 +53,10 @@ function printcards(cards) {
 		container.innerHTML += card;
 	};
 }
+startbutton.addEventListener('mouseover', () => {
+
+})
+
 // shuffle(cards);
 // printcards(cards);
 
