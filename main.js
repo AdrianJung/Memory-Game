@@ -18,7 +18,6 @@ const cards = [
   { id: 8, cardclass: 'card card-8'},
   { id: 8, cardclass: 'card card-8'}
 ]
-
 let finishCounter = 0;
 let clickCounter = 0;
 let firstcard = 0;
@@ -40,7 +39,7 @@ const secondAudio = document.querySelector('#second-audio')
 let audio = new Audio('themesong.mp3');
 let audio2 = new Audio('levelcomplete.mp3')
 
-
+// function that creates cards
 const makeCard = (id, cardclass) => {
 	return `<div data-id="${id}" class="${cardclass}">
 	</div>`;
@@ -48,7 +47,7 @@ const makeCard = (id, cardclass) => {
 // function to remove cards
 const removecards = () => {
 	container.innerHTML = "";
-		clickCounter = 0;
+	clickCounter = 0;
 }
 // function to shuffle the array
 function shuffle(array) {
@@ -60,7 +59,7 @@ function shuffle(array) {
 // function that prints cards
 function printcards(cards) {
 	for (let i = 0; i < cards.length; i++) {
-		const card = makeCard(cards[i].id, cards[i].cardclass,);
+		const card = makeCard(cards[i].id, cards[i].cardclass, );
 		container.innerHTML += card;
 	};
 }
@@ -123,8 +122,7 @@ const clickFix = (e) => {
 	if (e.target.matches('.card') && counter < 2) {
 		if (e.target.classList.contains('match')) {
 
-		}
-		else {
+		} else {
 			if (previoustarget !== e.target || counter == 0) {
 				e.target.classList.add('active')
 				setTimeout(() => {
