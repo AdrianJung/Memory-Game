@@ -19,6 +19,7 @@ const cards = [
   { id: 8, cardclass: 'card card-8'}
 ]
 
+let finishCounter = 0;
 let clickCounter = 0;
 let firstcard = 0;
 let previoustarget = 0;
@@ -44,25 +45,26 @@ const makeCard = (id, cardclass) => {
 	return `<div data-id="${id}" class="${cardclass}">
 	</div>`;
 }
-
+// function to remove cards
 const removecards = () => {
 	container.innerHTML = "";
 		clickCounter = 0;
 }
-
+// function to shuffle the array
 function shuffle(array) {
 	for (let i = array.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
 		[array[i], array[j]] = [array[j], array[i]];
 	}
 }
-
+// function that prints cards
 function printcards(cards) {
 	for (let i = 0; i < cards.length; i++) {
 		const card = makeCard(cards[i].id, cards[i].cardclass,);
 		container.innerHTML += card;
 	};
 }
+// makes memory visible on start game click
 startbutton.addEventListener('click', () => {
 	shuffle(cards);
 	printcards(cards);
@@ -73,13 +75,14 @@ startbutton.addEventListener('click', () => {
 	audio.loop = true;
 	audio.play();
 })
+// hover effect with mushroom icon
 startbutton.addEventListener('mouseover', () => {
 	mushroomicon.classList.add('active');
 })
 startbutton.addEventListener('mouseout', () => {
 	mushroomicon.classList.remove('active');
 })
-
+// reset button function
 shufflebutton.addEventListener('click', () => {
 	removecards(cards);
 	shuffle(cards);
@@ -88,7 +91,7 @@ shufflebutton.addEventListener('click', () => {
 	cloudtext.textContent = "CLICKS: " + clickCounter;
 	audio.play();
 });
-
+// function that checks if the cards match
 const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 	if (firstcard === secondcard) {
 		firstcardEle.classList.add('match')
@@ -111,7 +114,8 @@ const checkMatch = (firstcard, secondcard, firstcardEle, secondcardEle) => {
 
 	}
 }
-let finishCounter = 0;
+
+// main function that checks if the cards id match with eachother
 const clickFix = (e) => {
 	clickCounter++;
 	cloudtext.textContent = "CLICKS: " + clickCounter;
